@@ -13,25 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('views',path.join(__dirname,'/views'))
 // app.use(app);
-const passengers = [
-    {
-        name: "Joyce",
-        flightNumber: 7859,
-        time: "18h00",
-    },
-    {
-        name: "Brock",
-        flightNumber: 7859,
-        time: "18h00",
-    },
-    {
-        name: "Eve",
-        flightNumber: 7859,
-        time: "18h00",
-    },
-];
 
-app.post('/pdf', async(request, response) => {
+
+app.get('/pdf', async(request, response) => {
 
 
     const browser = await puppeteer.launch()
@@ -55,9 +39,10 @@ app.post('/pdf', async(request, response) => {
 })
 app.post('/', (request, response) => {
     console.log(request.body)
-    const {}=request.body
+    const {Nome,Adress,data,CEP,Entreprise,CNPJ}=request.body
+    console.log(Nome)
     const filePath = path.join(__dirname, "views/print.ejs")
-    ejs.renderFile(filePath, { passengers}, (err, html) => {
+    ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
         if(err) {
             return response.send('Erro na leitura do arquivo')
         }
