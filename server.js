@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import path from 'path'
 import ejs from 'ejs'
 // import fs from 'fs'
-// import pdf from 'html-pdf'
+ import pdf from 'html-pdf'
 import puppeteer from 'puppeteer'
 
 
@@ -20,23 +20,21 @@ app.set('views',path.join(__dirname,'/views'))
  
 
 app.get('/pdf',async(request,response) => {
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
+    console.log(request.query)
+    const {Nome,Adress,data,CEP,Entreprise,CNPJ}=request.query
+    const filePath = path.join(__dirname, "views/print.ejs")
+    ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
+       
+        if(err) {
+            return response.send('Erro na leitura do arquivo')
+        }
+    
+        pdf.create(html,options)
+        
 
-    await page.goto('http://localhost:3333/', {
-        waitUntil: 'networkidle0'
+        return response.send(html)
     })
-
-    const pdf = await page.pdf({
-        printBackground: true,
-        format: 'Letter'
-    })
-
-    await browser.close()
-
-    response.contentType("application/pdf")
-
-    return response.send(pdf)
+   
 })
 app.get('/', (request, response) => {
     console.log(request.query)
@@ -45,18 +43,23 @@ app.get('/', (request, response) => {
     const filePath = path.join(__dirname, "views/print.ejs")
     ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
        
-        if(err) {
-            return response.send('Erro na leitura do arquivo')
-        }
-    
-        // enviar para o navegador
-        console.log(html)
+        const options = {
+            format:'A4',
 
+            }
+            console.log(html)
+            pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
+                    console.log(res)
+            })
+      
+        // // enviar para o navegador
         return response.send(html)
+        
+        // return response.send(html)
     })
    
 })
-app.post('/home',(request,response)=>{
+app.get('/home',(request,response)=>{
    
   
     response.render('Register.ejs')
