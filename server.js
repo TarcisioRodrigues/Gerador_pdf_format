@@ -20,20 +20,25 @@ app.set('views',path.join(__dirname,'/views'))
  
 
 app.get('/pdf',async(request,response) => {
-    console.log(request.query)
     const {Nome,Adress,data,CEP,Entreprise,CNPJ}=request.query
-    const filePath = path.join(__dirname, "views/print.ejs")
-    ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
-       
-        if(err) {
-            return response.send('Erro na leitura do arquivo')
-        }
-    
-        pdf.create(html,options)
-        
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
 
-        return response.send(html)
+    await page.goto(`http://localhost:3333/?Nome=${Nome}&data=${data}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&acao=Enviar`, {
+        waitUntil: 'networkidle0'
     })
+
+    const pdf = await page.pdf({
+        printBackground: true,
+        format: 'Letter'
+    })
+
+    await browser.close()
+
+    response.contentType("application/pdf")
+
+    return response.send(pdf)
+
    
 })
 app.get('/', (request, response) => {
@@ -43,14 +48,14 @@ app.get('/', (request, response) => {
     const filePath = path.join(__dirname, "views/print.ejs")
     ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
        
-        const options = {
-            format:'A4',
+        // const options = {
+        //     format:'A4',
 
-            }
-            console.log(html)
-            pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
-                    console.log(res)
-            })
+        //     }
+        //     console.log(html)
+        //     pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
+        //             console.log(res)
+        //     })
       
         // // enviar para o navegador
         return response.send(html)
