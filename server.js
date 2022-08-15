@@ -47,19 +47,8 @@ app.get("/", (request, response) => {
     filePath,
     { Nome, Adress, data, CEP, Entreprise, CNPJ },
     (err, html) => {
-      // const options = {
-      //     format:'A4',
-
-      //     }
-      //     console.log(html)
-      //     pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
-      //             console.log(res)
-      //     })
-
       // // enviar para o navegador
       return response.send(html);
-
-      // return response.send(html)
     }
   );
 });
