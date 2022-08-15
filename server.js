@@ -5,7 +5,7 @@ import ejs from "ejs";
 // import fs from 'fs'
 import pdf from "html-pdf";
 import puppeteer from "puppeteer";
-
+import searchCNPJ from 'consultar-cnpj'
 const app = express();
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "ejs");
@@ -15,11 +15,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "/views"));
 // app.use(app);
 
+
+
 app.get("/pdf", async (request, response) => {
   
   const { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent } = request.query;
   console.log(request.query);
   const fdata=new Date(data)
+  //formatando a data para pt-Br
   const FormatBR= new Intl.DateTimeFormat('pt-BR').format(fdata);
 
   const browser = await puppeteer.launch();

@@ -47,6 +47,7 @@ text-align: center;
 .tem{
 display: flex;
 flex-direction: column;
+justify-content: center;
 }
 .temp{
 margin-top: 17px;
@@ -55,13 +56,18 @@ margin-top: 17px;
 display: flex;
 align-items: center;
 justify-content: center;
+margin-left: 25px;
+margin-top: 10px;
 }
 .es{
 margin-bottom: 10px;
 }
 body{
   background-image: url('../public/Papel-Timbrado-Vubis-png-2-removebg-preview.png');
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  
+  
 }
 .Image{
 width: 300px;
@@ -106,8 +112,7 @@ margin-top: 70px;
     outro lado, <span class="Uper"><%=Entreprise%></span>, estabelecida à
     <%=Adress%>, <%=CEP%>
     , inscrita no CNPJ/MF sob n°<%=CNPJ%>, neste ato representada
-    por seu(s) representante(s) legal(is) MICHELLE CLICIA ALMEIDA ABREU
-    RIBEIRO infra-assinado(s), nesse ato se vinculam ao CONTRATO DE
+    por seu(s) representante(s) legal(is) <span class="Uper"><%=Represent%></span> infra-assinado(s), nesse ato se vinculam ao CONTRATO DE
     LICENCIAMENTO E ATUALIZAÇÃO DOS MÓDULOS DE SOFTWARE NÃO PERSONALIZADO
     QUE INTEGRAM A PLATAFORMA FORTICS e ANEXO(S), registrado perante o
     Cartório Sampaio de 1º Ofício, Eusébio/CE, incluindo re-ratificações
@@ -126,7 +131,7 @@ margin-top: 70px;
     
     <span class="Uper"><%=Entreprise%></span><br><%=CNPJ%><br><span class="Uper"><%=Represent%></span> <br><div class="desk">
     <div class="footer">
-    <div class="tem"> <p>Testemunhas: <br>_______________________________</p><br><p class="frase">CONTRATANTE<br> CPF:</p></div>
+    <div class="tem"> <p><span style="margin-bottom: 10px;">Testemunhas: </span><br>_______________________________</p><br><p class="frase">CONTRATANTE<br> CPF:</p></div>
     <div class="tem"> <p> <br>_______________________________</p><br><p class="frase">CONTRATADO<br> CPF:</p></div>
     </div>
     </div>
