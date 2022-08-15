@@ -5,7 +5,6 @@ import ejs from "ejs";
 // import fs from 'fs'
 import pdf from "html-pdf";
 import puppeteer from "puppeteer";
-import searchCNPJ from 'consultar-cnpj'
 const app = express();
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "ejs");

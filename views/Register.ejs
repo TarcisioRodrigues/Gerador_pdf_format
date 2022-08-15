@@ -19,84 +19,18 @@
    <div class="content">
     <h1>Formulario</h1>
     <form action="/pdf" method="get" class="formi" >
-      <input type="text" name="Nome" placeholder="Digite seu nome" required id="nome"   />
+      <input type="text" name="Nome" placeholder="Digite seu nome" required id="nome_fantasia"   />
       <input type="date" name="data" placeholder="Digite a data" required  />
       <input type="text" name="Adress" placeholder="Digite seu logadouro" required id="logadouro" />
       <input type="text" name="CEP" placeholder="Digite seu CEP" required/>
-      <input type="text" name="CNPJ" placeholder="Digite CNPJ" onblur="checkPnj(this.value)" required id="autoCompl" data-mask="00.000.000/0000-00" />
+      <input type="text" name="CNPJ" placeholder="Digite CNPJ" onblur="checkCnpj(this.value)" required id="autoCompl" data-mask="00.000.000/0000-00" />
       <input type="text" name="Entreprise" placeholder="Digite empresa " required />
-      <input type="text" name="Represent" placeholder="Digite o represetante " required />
+      <input type="text" name="Represent" placeholder="Digite o represetante " id="representante" required  />
       <button type="submit" name="acao" value="Enviar" class="buttons" >Enviar</button>
     </form>
    </div>
-   <script src="<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>"></script>
-   <script src="<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>"></script>
-   <script>
-      $funcao = $("#cnpj").focusout(function() {
-					$.ajax({
-						url: 'https://receitaws.com.br/v1/cnpj/' + $(this).val(),
-						dataType: 'jsonp',
-						success: function(resposta) {
-							if (resposta.cnpj == undefined) {
-								event.preventDefault();
-								alert("CNPJ invalido")
-								Cnpj.classList.add("errorInput");
-							} else {
-								$("#nome_fantasia").val(resposta.fantasia);
-								$("#razao_social").val(resposta.nome);
-								$("#logradouro").val(resposta.logradouro);
-								$("#cep").val(resposta.cep);
-								$("#bairro").val(resposta.bairro);
-								$("#cidade").val(resposta.municipio);
-								$("#uf").val(resposta.uf);
-								$("#numero").val(resposta.numero);
-								$("#CPF").focus();
-							}
-						}
-					});
-				});
-
-				function validar() {
-					Email = document.getElementById('email');
-					Cpf = document.getElementById('CPF');
-					Cnpj = document.getElementById('cnpj');
-					rep_legal = document.getElementById('representante');
-					//cpp = Cnpj.lenght ;
-
-					if (Email.value == '') {
-						event.preventDefault();
-						//alert("Email não foi preenchido");
-						Email.classList.add("errorInput");
-					};
-					if (Email.value != '') {
-						Email.classList.remove("errorInput");
-					};
-					if (Cpf.value == '') {
-						event.preventDefault();
-						//	alert("O Cpf não foi preenchido");
-						Cpf.classList.add("errorInput");
-					};
-					if (Cpf.value != '') {
-						Cpf.classList.remove("errorInput");
-					};
-					if (Cnpj.value == '') {
-						event.preventDefault();
-						//	alert("O Cnpj não foi preenchido");
-						Cnpj.classList.add("errorInput");
-					};
-					if (Cnpj.value != '') {
-						Cnpj.classList.remove("errorInput");
-					};
-					if (rep_legal.value == '') {
-						event.preventDefault();
-						//alert("Email não foi preenchido");
-						rep_legal.classList.add("errorInput");
-					};
-					if (rep_legal.value != '') {
-						rep_legal.classList.remove("errorInput");
-					};
-				};
-			
-   </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	 <script src="../public/script.js"></script>
   </body>
 </html>
