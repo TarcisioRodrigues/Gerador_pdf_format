@@ -16,12 +16,16 @@ app.set("views", path.join(__dirname, "/views"));
 // app.use(app);
 
 app.get("/pdf", async (request, response) => {
+  
   const { Nome, Adress, data, CEP, Entreprise, CNPJ } = request.query;
+  const fdata=new Date(data)
+  const FormatBR= new Intl.DateTimeFormat('pt-BR').format(fdata);
+
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto(
-    `http://localhost:3333/?Nome=${Nome}&data=${data}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&acao=Enviar`,
+    `http://localhost:3333/?Nome=${Nome}&data=${FormatBR}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&acao=Enviar`,
     {
       waitUntil: "networkidle0",
     }

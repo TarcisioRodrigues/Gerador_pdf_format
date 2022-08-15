@@ -4,22 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>Form</title>
+    <link rel="stylesheet" href="../public/styles.css">
     <link
       href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
       rel="stylesheet"
     />
   </head>
+  
   <body>
-    <h1>formulario</h1>
-    <form action="/pdf" method="get" class="formi">
-      <input type="text" name="Nome" placeholder="Digite seu nome" />
-      <input type="date" name="data" placeholder="Digite a data" />
-      <input type="text" name="Adress" placeholder="Digite seu Endereço" />
-      <input type="text" name="CEP" placeholder="Digite seu CEP" />
-      <input type="text" name="CNPJ" placeholder="Digite CNPJ" />
-      <input type="text" name="Entreprise" placeholder="Digite empresa " />
-      <input type="submit" name="acao" value="Enviar" />
+    <head><img src="../public//Logo-Vubis-com-nome-ao-lado.png" alt="logo" class="image"></head>
+    
+   <div class="content">
+    <h1>Formulario</h1>
+    <form action="/pdf" method="get" class="formi" >
+      <input type="text" name="Nome" placeholder="Digite seu nome" required />
+      <input type="date" name="data" placeholder="Digite a data" required />
+      <input type="text" name="Adress" placeholder="Digite seu Endereço" required/>
+      <input type="text" name="CEP" placeholder="Digite seu CEP" required/>
+      <input type="text" name="CNPJ" placeholder="Digite CNPJ" required/>
+      <input type="text" name="Entreprise" placeholder="Digite empresa " required />
+      <button type="submit" name="acao" value="Enviar" class="buttons" >Enviar</button>
     </form>
+   </div>
   </body>
 </html>
