@@ -1,76 +1,70 @@
 import express from "express";
 import bodyParser from "body-parser";
-import path from 'path'
-import ejs from 'ejs'
+import path from "path";
+import ejs from "ejs";
 // import fs from 'fs'
- import pdf from 'html-pdf'
-import puppeteer from 'puppeteer'
-
+import pdf from "html-pdf";
+import puppeteer from "puppeteer";
 
 const app = express();
-app.engine('html',require('ejs').renderFile)
-app.set('view engine', 'ejs')
-app.use('/public',express.static(path.join(__dirname,'public')))    // Setamos que nossa engine será o ejs
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "ejs");
+app.use("/public", express.static(path.join(__dirname, "public"))); // Setamos que nossa engine será o ejs
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.set('views',path.join(__dirname,'/views'))
+app.set("views", path.join(__dirname, "/views"));
 // app.use(app);
 
+app.get("/pdf", async (request, response) => {
+  const { Nome, Adress, data, CEP, Entreprise, CNPJ } = request.query;
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
 
- 
+  await page.goto(
+    `http://localhost:3333/?Nome=${Nome}&data=${data}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&acao=Enviar`,
+    {
+      waitUntil: "networkidle0",
+    }
+  );
 
-app.get('/pdf',async(request,response) => {
-    const {Nome,Adress,data,CEP,Entreprise,CNPJ}=request.query
-    const browser = await puppeteer.launch()
-    const page = await browser.newPage()
+  const pdf = await page.pdf({
+    printBackground: true,
+    format: "Letter",
+  });
 
-    await page.goto(`http://localhost:3333/?Nome=${Nome}&data=${data}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&acao=Enviar`, {
-        waitUntil: 'networkidle0'
-    })
+  await browser.close();
 
-    const pdf = await page.pdf({
-        printBackground: true,
-        format: 'Letter'
-    })
+  response.contentType("application/pdf");
 
-    await browser.close()
+  return response.send(pdf);
+});
+app.get("/", (request, response) => {
+  console.log(request.query);
+  const { Nome, Adress, data, CEP, Entreprise, CNPJ } = request.query;
 
-    response.contentType("application/pdf")
+  const filePath = path.join(__dirname, "views/print.ejs");
+  ejs.renderFile(
+    filePath,
+    { Nome, Adress, data, CEP, Entreprise, CNPJ },
+    (err, html) => {
+      // const options = {
+      //     format:'A4',
 
-    return response.send(pdf)
+      //     }
+      //     console.log(html)
+      //     pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
+      //             console.log(res)
+      //     })
 
-   
-})
-app.get('/', (request, response) => {
-    console.log(request.query)
-    const {Nome,Adress,data,CEP,Entreprise,CNPJ}=request.query
-    
-    const filePath = path.join(__dirname, "views/print.ejs")
-    ejs.renderFile(filePath, { Nome,Adress,data,CEP,Entreprise,CNPJ}, (err, html) => {
-       
-        // const options = {
-        //     format:'A4',
+      // // enviar para o navegador
+      return response.send(html);
 
-        //     }
-        //     console.log(html)
-        //     pdf.create(html,options).toFile('./Reports/report.pdf',(res,err)=>{
-        //             console.log(res)
-        //     })
-      
-        // // enviar para o navegador
-        return response.send(html)
-        
-        // return response.send(html)
-    })
-   
-})
-app.get('/home',(request,response)=>{
-   
-  
-    response.render('Register.ejs')
-    
-
-    
-})
+      // return response.send(html)
+    }
+  );
+});
+app.get("/home", (request, response) => {
+  response.render("Register.ejs");
+});
 
 app.listen("3333", () => console.log("Aplication 🔥 "));

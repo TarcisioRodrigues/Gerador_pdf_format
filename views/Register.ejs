@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form</title>
-</head>
-<body>
+    <link
+      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <h1>formulario</h1>
-    <form action="/pdf" method="get">
-        <input type="text" name="Nome" placeholder="Digite seu nome" >
-        <input type="date" name="data" placeholder="Digite a data">
-        <input type="text" name="Adress" placeholder="Digite seu Endereço">
-        <input type="text" name="CEP" placeholder="Digite seu CEP">
-        <input type="text" name="CNPJ" placeholder="Digite CNPJ">
-        <input type="text" name="Entreprise" placeholder="Digite empresa ">
-        <input type="submit" name="acao" value="Enviar">
+    <form action="/pdf" method="get" class="formi">
+      <input type="text" name="Nome" placeholder="Digite seu nome" />
+      <input type="date" name="data" placeholder="Digite a data" />
+      <input type="text" name="Adress" placeholder="Digite seu Endereço" />
+      <input type="text" name="CEP" placeholder="Digite seu CEP" />
+      <input type="text" name="CNPJ" placeholder="Digite CNPJ" />
+      <input type="text" name="Entreprise" placeholder="Digite empresa " />
+      <input type="submit" name="acao" value="Enviar" />
     </form>
-</body>
+  </body>
 </html>
