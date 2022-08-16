@@ -1,11 +1,12 @@
 const checkCnpj=(cnpj)=>{
   $.ajax({
-    'url':'https://receitaws.com.br/v1/cnpj/'+cnpj.replace(/[^0-9]/g,''),
+    'url':'https://receitaws.com.br/v1/cnpj/ '+cnpj.replace(/[^0-9]/g,''),
     'type':'GET',
     'dataType':'jsonp',
     'success': function(data){
       if (data.nome===undefined) {
         event.preventDefault();
+        console.log(data.nome)
             alert("CNPJ invalido")
       } else {
         document.getElementById('nome_fantasia').value=data.fantasia
