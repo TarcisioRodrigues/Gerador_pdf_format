@@ -18,17 +18,17 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.get("/pdf", async (request, response) => {
   
-  const { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent } = request.query;
+  const { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent,CPF } = request.query;
   console.log(request.query);
   const fdata=new Date(data)
   //formatando a data para pt-Br
-  const FormatBR= new Intl.DateTimeFormat('pt-BR').format(fdata);
+  const FormatBR= new Intl.DateTimeFormat('pt-BR',{year: "numeric", month: "long", day: "2-digit"}).format(fdata);
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto(
-    `http://localhost:3333/?Nome=${Nome}&data=${FormatBR}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&Entreprise=${Entreprise}&Represent=${Represent}&acao=Enviar`,
+    `http://localhost:3333/?Nome=${Nome}&data=${FormatBR}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&CPF=${CPF}&Entreprise=${Entreprise}&Represent=${Represent}&acao=Enviar`,
     {
       waitUntil: "networkidle0",
     }
@@ -47,12 +47,12 @@ app.get("/pdf", async (request, response) => {
 });
 app.get("/", (request, response) => {
   
-  const { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent } = request.query;
+  const { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent,CPF } = request.query;
 
   const filePath = path.join(__dirname, "views/print.ejs");
   ejs.renderFile(
     filePath,
-    { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent },
+    { Nome, Adress, data, CEP, Entreprise, CNPJ,Represent,CPF },
     (err, html) => {
       // // enviar para o navegador
       return response.send(html);

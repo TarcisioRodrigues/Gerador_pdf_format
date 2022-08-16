@@ -5,11 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Relatório</title>
-<script >function dataAtualFormatada(){
-   
-  moment().format('MMMM Do YYYY, h:mm:ss a')
-  return `${dia}/${mes}/${ano}`;
-}</script>
+
 <link
 href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
 rel="stylesheet"
@@ -61,12 +57,14 @@ margin-top: 10px;
 }
 .es{
 margin-bottom: 10px;
+margin-top: 10px;
+text-align: center;
 }
 body{
   background-image: url('../public/Papel-Timbrado-Vubis-png-2-removebg-preview.png');
   background-size: 100%;
   background-repeat: no-repeat;
-  
+  background-blend-mode: color-burn;
   
 }
 .Image{
@@ -74,6 +72,9 @@ width: 300px;
 height: 70px;
 margin-top: 70px;
 
+}
+.esc{
+  margin-top: 10px;
 }
 .Uper{
  text-transform: uppercase;
@@ -126,10 +127,10 @@ margin-top: 70px;
     <div class="es">SÃO LUIS, MA – <%=data%></div><br>
     _____________________________________________________________________<br>
     
-    <div class="es">VUBIS TECNOLOGIA LTDA 44.171.042/0001-60 <span class="Uper"><%=Nome%></span></div><br>
+    <div class="esc">VUBIS TECNOLOGIA LTDA 44.171.042/0001-60 <br> <span class="Uper"><%=Represent%> <%=CPF%> </span></div><br>
     ____________________________________________________________________<br>
     
-    <span class="Uper"><%=Entreprise%></span><br><%=CNPJ%><br><span class="Uper"><%=Represent%></span> <br><div class="desk">
+    <div class="es"></div><span class="Uper"><%=Entreprise%></span><br><%=CNPJ%><br><span class="Uper"><%=Represent%> <%=CPF%> </span> <br><div></div><div class="desk">
     <div class="footer">
     <div class="tem"> <p><span style="margin-bottom: 10px;">Testemunhas: </span><br>_______________________________</p><br><p class="frase">CONTRATANTE<br> CPF:</p></div>
     <div class="tem"> <p> <br>_______________________________</p><br><p class="frase">CONTRATADO<br> CPF:</p></div>
