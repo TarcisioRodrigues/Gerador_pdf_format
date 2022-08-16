@@ -3,21 +3,21 @@ const checkCnpj=(cnpj)=>{
   console.log(formatCnpj)
   $.ajax({
     
-    'url':'https://receitaws.com.br/v1/cnpj/ '+formatCnpj,
+    'url':'https://receitaws.com.br/v1/cnpj/'+formatCnpj,
     'type':'GET',
     'dataType':'jsonp',
     'success': function(data){
       console.log(data)
       if (data.nome===undefined) {
-        event.preventDefault();
+        // event.preventDefault();
         console.log(data.nome)
             alert("CNPJ invalido")
       } else {
-        document.getElementById('nome_fantasia').value=data.fantasia
-        document.getElementById('representante').value=data.nome
+        document.getElementById('nome').value=data.nome
+        document.getElementById('representante').value=data.qsa[0].nome
         document.getElementById('logadouro').value=data.logradouro
         document.getElementById('CEP').value=data.cep
-        document.getElementById('Entreprise').value=data.logradouro
+        document.getElementById('entreprise').value=data.nome
       }
     }
   })
