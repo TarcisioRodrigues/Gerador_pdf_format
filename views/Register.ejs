@@ -7,10 +7,6 @@
     
     <title>Form</title>
     <link rel="stylesheet" href="../public/styles.css">
-    <link
-      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
   </head>
   
   <body>
@@ -23,7 +19,7 @@
       <input type="date" name="data" placeholder="Digite a data" required  />
       <input type="text" name="Adress" placeholder="Digite seu logadouro" required id="logadouro" />
       <input type="text" name="CEP" placeholder="Digite seu CEP" required/>
-      <input type="text" name="CNPJ" placeholder="Digite CNPJ" onblur="checkCnpj(this.value)" required id="autoCompl" data-mask="00.000.000/0000-00" />
+      <input type="text" name="CNPJ" placeholder="Digite CNPJ" onblur="checkCnpj(this.value)" required id="autoCompl" data-mask="00.000.000/0000-000" />
       <input type="text" name="Entreprise" placeholder="Digite empresa " required />
       <input type="text" name="Represent" placeholder="Digite o represetante " id="representante" required  />
       <button type="submit" name="acao" value="Enviar" class="buttons" >Enviar</button>
