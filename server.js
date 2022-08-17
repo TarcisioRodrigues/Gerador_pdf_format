@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import ejs from "ejs";
 // import fs from 'fs'
-import pdf from "html-pdf";
+
 import puppeteer from "puppeteer";
 import cors from 'cors'
 const app = express();
@@ -25,9 +25,7 @@ app.get("/pdf", async (request, response) => {
   console.log(typeof(data))
   let data_brasileira = data.split('-').reverse().join('/');
   console.log(data_brasileira)
-  //formatando a data para pt-Br
-//   const FormatBR= new Intl.DateTimeFormat('pt-BR',{year: "numeric", month: "long", day: "2-digit"}).format(data);
-// console.log(FormatBR)
+  
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   if(!Nome&&!data&&!CEP&&!Entreprise&&!CNPJ&&!Represent&&!CPF){

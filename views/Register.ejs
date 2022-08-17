@@ -27,20 +27,7 @@
           placeholder="Digite CNPJ"
           onblur="checkCnpj(this.value)"
           required
-          
           data-mask="00.000.000/0000-000"
-        />
-        <input
-          type="text"
-          name="CPF"
-          placeholder="Digite o CPF "
-          data-mask="000.000.000-00"
-          
-          id="RegraValida"
-          required
-          value=""
-          name="RegraValida" 
-         
         />
         <input
           type="text"
@@ -49,7 +36,13 @@
           required
           id="nome"
         />
-        <input type="date" name="data" placeholder="Digite a data"  id='data' required />
+        <input
+          type="date"
+          name="data"
+          placeholder="Digite a data"
+          id="data"
+          required
+        />
         <input
           type="text"
           name="Adress"
@@ -71,15 +64,17 @@
           required
           id="entreprise"
         />
+        <input type="text" name="CPF" placeholder="Digite o CPF " required data-mask="000.000.000-00" />
         <input
           type="text"
           name="Represent"
           placeholder="Digite o represetante "
           id="representante"
+          
           required
         />
 
-        <button type="submit" name="acao" value="Enviar" class="buttons"  onclick="ValidaCPF()">
+        <button type="submit" name="acao" value="Enviar" class="buttons">
           Enviar
         </button>
       </form>
@@ -98,7 +93,11 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-    <script src="../public/script.js"></script>
+    <script
+      type="text/javascript"
+      src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"
+    ></script>
+    <script src="../public/CNPJ.js"></script>
+    <script src="../public/ValidarCPF.js"></script>
   </body>
 </html>
