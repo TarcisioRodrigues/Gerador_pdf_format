@@ -27,7 +27,7 @@
           placeholder="Digite CNPJ"
           onblur="checkCnpj(this.value)"
           required
-          id="autoCompl"
+          
           data-mask="00.000.000/0000-000"
         />
         <input
@@ -35,8 +35,12 @@
           name="CPF"
           placeholder="Digite o CPF "
           data-mask="000.000.000-00"
-          id="CPF"
+          
+          id="RegraValida"
           required
+          value=""
+          name="RegraValida" 
+         
         />
         <input
           type="text"
@@ -45,7 +49,7 @@
           required
           id="nome"
         />
-        <input type="date" name="data" placeholder="Digite a data" value= id='data' required />
+        <input type="date" name="data" placeholder="Digite a data"  id='data' required />
         <input
           type="text"
           name="Adress"
@@ -75,7 +79,7 @@
           required
         />
 
-        <button type="submit" name="acao" value="Enviar" class="buttons">
+        <button type="submit" name="acao" value="Enviar" class="buttons"  onclick="ValidaCPF()">
           Enviar
         </button>
       </form>

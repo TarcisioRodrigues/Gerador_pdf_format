@@ -18,9 +18,9 @@ const checkCnpj = (cnpj) => {
         document.getElementById("representante").value = data.qsa[0].nome;
         document.getElementById("logadouro").value = data.logradouro;
         document.getElementById("CEP").value = data.cep;
-        // document.getElementById("CPF").value = data.cpf;
+        
         document.getElementById("entreprise").value = data.nome;
-        //  document.getElementById("data").value = dataAtual;
+       
         
 
 
@@ -28,51 +28,38 @@ const checkCnpj = (cnpj) => {
     },
   });
 };
-// const Validar=(CPF)=>{
-//   cpfFormat=CPF.replace(/[^0-9]/g, "")
-//   console.log(cpfFormat)
-//   var Soma;
-//   var Resto;
-//   Soma = 0;
-// if (strCPF == "00000000000") return false;
 
-// for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-// Resto = (Soma * 10) % 11;
+  
+  
+  function ValidaCPF(){	
+    var RegraValida=document.getElementById("RegraValida").value; 
+    var cpfValido = /^(([0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2})|([0-9]{11}))$/;	 
+    if (cpfValido.test(RegraValida) == true)	{ 
+    console.log("CPF Válido");	
+    } else	{	 
+    console.log("CPF Inválido");	
+    }
+      }
+    function fMasc(objeto,mascara) {
+  obj=objeto
+  masc=mascara
+  setTimeout("fMascEx()",1)
+  }
+  
+    function fMascEx() {
+  obj.value=masc(obj.value)
+  }
+  
+     function mCPF(cpf){
+  cpf=cpf.replace(/\D/g,"")
+  cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+  cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+  cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+  return cpf
+  }
+			  
 
-//   if ((Resto == 10) || (Resto == 11))  Resto = 0;
-//   if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
 
-// Soma = 0;
-//   for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
-//   Resto = (Soma * 10) % 11;
+	
 
-//   if ((Resto == 10) || (Resto == 11))  Resto = 0;
-//   if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-//   return true;
-
-// var strCPF = "12345678909";
-// alert(TestaCPF(strCPF));
-// }
-
-
-
-function CPF(){"user_strict";function r(r){for(var t=null,n=0;9>n;++n)t+=r.toString().charAt(n)*(10-n);var i=t%11;return i=2>i?0:11-i}function t(r){for(var t=null,n=0;10>n;++n)t+=r.toString().charAt(n)*(11-n);var i=t%11;return i=2>i?0:11-i}var n="CPF Inválido",i="CPF Válido";this.gera=function(){for(var n="",i=0;9>i;++i)n+=Math.floor(9*Math.random())+"";var o=r(n),a=n+"-"+o+t(n+""+o);return a},this.valida=function(o){for(var a=o.replace(/\D/g,""),u=a.substring(0,9),f=a.substring(9,11),v=0;10>v;v++)if(""+u+f==""+v+v+v+v+v+v+v+v+v+v+v)return n;var c=r(u),e=t(u+""+c);return f.toString()===c.toString()+e.toString()?i:n}}
-
-
-
-   var CPF = new CPF();
-   document.write(CPF.valida("123.456.789-00"));
-   
-   document.write("<br> Utilizando o proprio gerador da lib<br><br><br>");
-   for(var i =0;i<40;i++) {
-      var temp_cpf = CPF.gera();
-      document.write(temp_cpf+" = "+CPF.valida(temp_cpf)+"<br>");
-   }
-
-$("#input").keypress(function(){
-    $("#resposta").html(CPF.valida($(this).val()));
-});
-
-$("#input").blur(function(){
-     $("#resposta").html(CPF.valida($(this).val()));
-});
+	
