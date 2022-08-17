@@ -7,14 +7,14 @@ export const PDFController = {
     const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF } =
       request.query;
 
-    console.log(typeof data);
+    // console.log(typeof data);
     let data_brasileira = data.split("-").reverse().join("/");
-    console.log(data_brasileira);
+    // console.log(data_brasileira);
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     if (!Nome && !data && !CEP && !Entreprise && !CNPJ && !Represent && !CPF) {
-      response.redirect("/");
+      response.status(400).json('Volte para o Formulario');
     }
     await page.goto(
       `http://localhost:3333/home/?Nome=${Nome}&data=${data_brasileira}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&CPF=${CPF}&Entreprise=${Entreprise}&Represent=${Represent}&acao=Enviar`,
