@@ -1,7 +1,6 @@
-
 const checkCnpj = (cnpj) => {
   const formatCnpj = cnpj.replace(/[^0-9]/g, "");
-  
+
   console.log(formatCnpj);
   $.ajax({
     url: "https://receitaws.com.br/v1/cnpj/" + formatCnpj,
@@ -10,7 +9,7 @@ const checkCnpj = (cnpj) => {
     success: function (data) {
       console.log(data);
       if (data.nome === undefined) {
-         event.preventDefault();
+        event.preventDefault();
         console.log(data.nome);
         alert("CNPJ invalido");
       } else {
@@ -18,25 +17,9 @@ const checkCnpj = (cnpj) => {
         document.getElementById("representante").value = data.qsa[0].nome;
         document.getElementById("logadouro").value = data.logradouro;
         document.getElementById("CEP").value = data.cep;
-        
+
         document.getElementById("entreprise").value = data.nome;
-       
       }
     },
   });
 };
-
-  
-
-
-
-
-
-
-
-			  
-
-
-	
-
-	

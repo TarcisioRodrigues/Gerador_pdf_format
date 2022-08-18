@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap");
 body {
   background-color: #d7b7df;
   justify-content: center;
@@ -22,7 +22,7 @@ h1 {
 .local {
   width: 100%;
   height: 100px;
-  border-radius:  20px 20px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 .logo {
   background-color: #fff;
@@ -52,8 +52,8 @@ input {
   flex-direction: column;
   margin: 30px auto 20px auto;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.64); 
-box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.64);
+  -webkit-box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.64);
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.64);
   animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 @-webkit-keyframes text-focus-in {
@@ -83,8 +83,7 @@ box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.64);
 .buttons {
   width: 200px;
   height: 40px;
-  
- 
+
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -96,9 +95,9 @@ box-shadow: 0px 0px 14px 1px rgba(0,0,0,0.64);
   font-size: 14px;
   cursor: pointer;
 }
-button:hover{
+button:hover {
   transition: 0.6s;
-  
+
   background-color: #111111;
 }
 .image {

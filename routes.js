@@ -5,4 +5,4 @@ export const routes = Router();
 
 routes.get("/pdf", PDFController.create);
 routes.get("/home", PDFController.index);
-routes.get("/",PDFController.render);
+routes.get("/", PDFController.render);
