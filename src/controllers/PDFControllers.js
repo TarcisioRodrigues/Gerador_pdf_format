@@ -48,4 +48,8 @@ export const PDFController = {
       }
     );
   },
+  async render (request, response)  {
+    const filePaths = path.join(__dirname, "../views/Register.ejs");
+    response.render(filePaths);
+  }
 };
