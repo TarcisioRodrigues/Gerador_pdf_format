@@ -1,5 +1,7 @@
 body{
-  margin-top: 140px;
+  margin-top: 160px;
+  font-family: Arial;
+  font-size: 14px;
 }
 h4 {
     text-align: center;
@@ -33,6 +35,7 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
     }
     .temp{
     margin-top: 17px;
@@ -41,17 +44,20 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 25px;
-    margin-top: 10px;
+    margin-left: 65px;
+    margin-top: 50px;
     }
     .es{
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: center;
     }
+    
     body{
-      background-image: url('../public/tibForti.png');
-      background-size: 96%;
+      background-image: url('../public/lasd.png');
+      
+   
+      background-size: 817px 1057px;
       background-repeat: no-repeat;
       background-blend-mode: color-burn;
       
@@ -68,3 +74,8 @@ h4 {
     .Uper{
      text-transform: uppercase;
     }
+.footer{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
