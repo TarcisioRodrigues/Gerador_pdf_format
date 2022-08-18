@@ -24,7 +24,7 @@ function validaCPF(cpf) {
       "99999999999",
     ].indexOf(strCPF) !== -1
   )
-    return console.log("false");
+    {cpf = document.getElementById("CPF").value="";}
 
   for (i = 1; i <= 9; i++)
     Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
@@ -33,7 +33,9 @@ function validaCPF(cpf) {
 
   if (Resto == 10 || Resto == 11) Resto = 0;
 
-  if (Resto != parseInt(strCPF.substring(9, 10))) return console.log(false);
+  if (Resto != parseInt(strCPF.substring(9, 10))){
+	cpf = document.getElementById("CPF").value="";
+  }
 
   Soma = 0;
 
@@ -44,7 +46,10 @@ function validaCPF(cpf) {
 
   if (Resto == 10 || Resto == 11) Resto = 0;
 
-  if (Resto != parseInt(strCPF.substring(10, 11))) return console.log(false);
+  if (Resto != parseInt(strCPF.substring(10, 11))){
+	cpf = document.getElementById("CPF").value="";
+	alert("CPF inválido")
+  } ;
 
   return console.log('true');
 }
