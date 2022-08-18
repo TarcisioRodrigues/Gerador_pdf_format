@@ -1,8 +1,8 @@
 const cpf = document.getElementById("CPF").value;
 
 function validaCPF(cpf) {
-	const valid=true
-	const invalid=false
+  const valid = true;
+  const invalid = false;
   var Soma = 0;
   var Resto;
 
@@ -23,8 +23,10 @@ function validaCPF(cpf) {
       "88888888888",
       "99999999999",
     ].indexOf(strCPF) !== -1
-  )
-    {cpf = document.getElementById("CPF").value="";}
+  ) {
+    cpf = document.getElementById("CPF").value = "";
+    alert("CPF inválido");
+  }
 
   for (i = 1; i <= 9; i++)
     Soma = Soma + parseInt(strCPF.substring(i - 1, i)) * (11 - i);
@@ -33,8 +35,9 @@ function validaCPF(cpf) {
 
   if (Resto == 10 || Resto == 11) Resto = 0;
 
-  if (Resto != parseInt(strCPF.substring(9, 10))){
-	cpf = document.getElementById("CPF").value="";
+  if (Resto != parseInt(strCPF.substring(9, 10))) {
+    cpf = document.getElementById("CPF").value = "";
+    alert("CPF inválido");
   }
 
   Soma = 0;
@@ -46,10 +49,10 @@ function validaCPF(cpf) {
 
   if (Resto == 10 || Resto == 11) Resto = 0;
 
-  if (Resto != parseInt(strCPF.substring(10, 11))){
-	cpf = document.getElementById("CPF").value="";
-	alert("CPF inválido")
-  } ;
+  if (Resto != parseInt(strCPF.substring(10, 11))) {
+    cpf = document.getElementById("CPF").value = "";
+    alert("CPF inválido");
+  }
 
-  return console.log('true');
+  return console.log("true");
 }
