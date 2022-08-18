@@ -13,9 +13,7 @@ export const PDFController = {
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    if (!Nome && !data && !CEP && !Entreprise && !CNPJ && !Represent && !CPF) {
-      response.status(400).json("Volte para o Formulario");
-    }
+
     await page.goto(
       `http://localhost:3333/home/?Nome=${Nome}&data=${data_brasileira}&Adress=${Adress}&CEP=${CEP}&CNPJ=${CNPJ}&CPF=${CPF}&Entreprise=${Entreprise}&Represent=${Represent}&acao=Enviar`,
       {
