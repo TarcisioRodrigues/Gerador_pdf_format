@@ -10,7 +10,7 @@ const checkCnpj = (cnpj) => {
  
       if (data.nome === undefined) {
         event.preventDefault();
-        
+        document.getElementById("cnpj").value = ""
         alert("CNPJ invalido");
       } else {
         document.getElementById("nome").value = data.nome;
