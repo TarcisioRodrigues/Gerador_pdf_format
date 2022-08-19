@@ -7,7 +7,7 @@ export const PDFController = {
     const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF } =
       request.query;
 
-    // console.log(typeof data);
+     console.log( data);
     let data_brasileira = data.split("-").reverse().join("/");
     // console.log(data_brasileira);
 
