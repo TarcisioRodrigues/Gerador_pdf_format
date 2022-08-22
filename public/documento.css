@@ -62,15 +62,18 @@ body {
   background-blend-mode: color-burn;
 }
 .assinatura {
-  width: 250px;
-  height: 70px;
-  position: fixed;
-  margin-left: 250px;
+  
+  width: 60%;
+  height: 10%;
+  position: absolute;
+  margin-left: 100px;
+  
   
 }
 .saw{
   display: flex;
   flex-direction: column;
+  
 }
 
 .Image {

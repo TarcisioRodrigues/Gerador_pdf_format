@@ -8,7 +8,7 @@ export const PDFController = {
       request.query;
 
     //  console.log( data);
-    let data_brasileira = data.split("-").reverse().join("/");
+     let data_brasileira = data.split("-").reverse().join("/");
     // console.log(data_brasileira);
 
     const browser = await puppeteer.launch();
