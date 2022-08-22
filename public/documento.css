@@ -1,83 +1,95 @@
-body{
-  margin-top: 160px;
+body {
+  margin-top: 140px;
   font-family: Arial;
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
-  
 }
 h4 {
-    text-align: center;
-    }
-    p {
-    text-align: justify;
-    align-items: center;
-    margin: 0 60px;
-    }
-    strong {
-    margin-top: 20px;
-    }
-    img{
-    width: 40px;
-    height: 40px;
-    }
-    .text{
-    margin-top: 20px;
-    }
-    .assins{
-    margin-top: 20px;
-    text-align: center;
-    align-items: center;
-    }
-    .desk{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    }
-    .tem{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    }
-    .temp{
-    margin-top: 17px;
-    }
-    .footer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 50px;
-    margin-top: 50px;
-    }
-    .es{
-    margin-bottom: 10px;
-    margin-top: 10px;
-    text-align: center;
-    }
-    
-    body{
-      background-image: url('../public/lasd.png');
-      
-   
-      background-size: 817px 1057px;
-      background-repeat: no-repeat;
-      background-blend-mode: color-burn;
-      
-    }
-    .Image{
-    width: 300px;
-    height: 70px;
-    margin-top: 70px;
-    
-    }
-    .esc{
-      margin-top: 10px;
-    }
-    .Uper{
-     text-transform: uppercase;
-    }
-.footer{
+  text-align: center;
+}
+p {
+  text-align: justify;
+  align-items: center;
+  margin: 0 60px;
+}
+strong {
+  margin-top: 20px;
+}
+img {
+  width: 40px;
+  height: 40px;
+}
+.text {
+  margin-top: 20px;
+}
+.assins {
+  margin-top: 20px;
+  text-align: center;
+  align-items: center;
+}
+.desk {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.tem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.temp {
+  margin-top: 17px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.es {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+body {
+  background-image: url("../public/lasd.png");
+
+  background-size: 817px 1057px;
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
+}
+.assinatura {
+  width: 250px;
+  height: 70px;
+  position: fixed;
+  margin-left: 250px;
+  
+}
+.saw{
+  display: flex;
+  flex-direction: column;
+}
+
+.Image {
+  width: 300px;
+  height: 70px;
+  margin-top: 70px;
+}
+
+.esc {
+  margin-top: 40px;
+}
+.Uper {
+  text-transform: uppercase;
+}
+.footer {
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+.testemunha {
+  margin-bottom: 30px;
 }

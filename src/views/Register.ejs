@@ -50,7 +50,7 @@
           placeholder="dia/mês/ano"
           id="data"
           data-mask="00/00/0000"
-          required
+          hidden
         />
         <input
           type="text"
@@ -73,16 +73,7 @@
           required
           id="entreprise"
         />
-        <input
-          
-          type="text"
-          name="CPF"
-          placeholder="Digite o CPF "
-          required
-          data-mask="000.000.000-00"
-          id="CPF"
-          onblur="validaCPF(this.value)"
-        />
+       
         <input
           type="text"
           name="Represent"
@@ -90,6 +81,16 @@
           id="representante"
           required
         />
+        <input
+          
+        type="text"
+        name="CPF"
+        placeholder="Digite o CPF "
+        required
+        data-mask="000.000.000-00"
+        id="CPF"
+        onblur="validaCPF(this.value)"
+      />
 
         <button type="submit" name="acao" value="Enviar" class="buttons" >
           Enviar
