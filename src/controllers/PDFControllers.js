@@ -1,11 +1,20 @@
 import ejs from "ejs";
 import puppeteer from "puppeteer";
 import path from "path";
+import connection from '../database'
 
 export const PDFController = {
   async create(request, response) {
-    const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF } =
+    const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF ,Email} =
       request.query;
+      try {
+
+        await connection('users').insert({
+            Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF, Email
+        })
+    } catch (error) {
+        console.log(error)
+    }
 
     //  console.log( data);
      let data_brasileira = data.split("-").reverse().join("/");
