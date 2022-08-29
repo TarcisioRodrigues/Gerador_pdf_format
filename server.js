@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("views", path.join(__dirname, "'./src/views'"));
 // app.use(app);
 
-app.use(cors());
+// app.use(cors());
 
 app.use(routes);
 app.listen("3333", () => console.log("Aplication 🔥 "));

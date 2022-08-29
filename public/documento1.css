@@ -1,0 +1,63 @@
+.container{
+display: flex;
+gap: 25px;
+margin-left: 100px;
+}
+
+body {
+    background-image: url("../public/lasd.png");
+  
+    background-size: 817px 1057px;
+    background-repeat: no-repeat;
+    background-blend-mode: color-burn;
+    margin-top: 140px;
+    font-family: Arial;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .cabec1{
+    margin-left: 250px;
+  }
+  .content{
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 60px;
+  }
+  td{
+    border: 2px solid #000;
+    width: 100px;
+  }
+  table{
+    border: 2px solid #000;
+    margin-left: 20px;
+    width: 90%;
+  }
+  .sa{
+    margin-top: 40px;
+  }
+  h8{
+    margin-left: 20px;
+    align-items: center;
+    border: 2px solid #000;
+    width: 50px;
+    
+    margin-top: 40px;
+
+  }
+  .dualtable{
+    display: flex;
+    
+  }
+  .aceite{
+    width: 50px;
+    height: 75px;
+  
+  }
+  .parcela{
+    width: 80px;
+    height: 75px;
+  }
