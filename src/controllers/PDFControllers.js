@@ -5,6 +5,7 @@ import connection from '../database'
 
 export const PDFController = {
   async create(request, response) {
+  
     const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF ,Email} =
       request.query;
       try {
@@ -15,7 +16,7 @@ export const PDFController = {
     } catch (error) {
         console.log(error)
     }
-
+   
     //  console.log( data);
      let data_brasileira = data.split("-").reverse().join("/");
     // console.log(data_brasileira);
@@ -28,19 +29,23 @@ export const PDFController = {
       {
         waitUntil: "networkidle0",
       }
+      
     );
 
     const pdf = await page.pdf({
       printBackground: true,
       format: "Letter",
+      path: 'hn.pdf'
     });
 
     await browser.close();
 
     response.contentType("application/pdf");
-
+    
     return response.send(pdf);
   },
+
+
   async index(request, response) {
     const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF } =
       request.query;
