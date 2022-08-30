@@ -69,6 +69,8 @@ export const PDFController = {
   },
 
   async create1(request, response) {
+    const all=request.query
+      console.log(all)
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
@@ -90,7 +92,7 @@ export const PDFController = {
 
   async index2(request, response) {
     const { Nome, Adress, data, CEP, Entreprise, CNPJ, Represent, CPF } =
-      request.query;
+      request.post;
 
     const filePath = path.join(__dirname, "../views/print2.ejs");
     ejs.renderFile(
